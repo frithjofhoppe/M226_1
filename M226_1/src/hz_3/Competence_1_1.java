@@ -3,7 +3,7 @@ package hz_3;
 public class Competence_1_1 {
 
 	public static void main(String[] args) {
-		int numberOfStudents = 21;
+		byte numberOfStudents = 21;
 		boolean isLightSwitchOn = true;
 		double saldoOfBankAccount = 6723.93;
 		char nameOfChessLine = 'C';

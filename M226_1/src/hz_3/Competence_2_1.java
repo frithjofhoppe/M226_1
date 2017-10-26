@@ -54,8 +54,9 @@ public class Competence_2_1
 		{
 			int amountOfX = RANDOM.nextInt(4) + 1;
 			int countChars = 0;
+			System.out.print("Zufallszahl: "+amountOfX + "\t");
 			for (int j = 0; j < amountOfX; j++)
-			{
+			{	
 				System.out.print("X");
 				countChars++;
 				int calculated0 = (10 - amountOfX) / amountOfX;
