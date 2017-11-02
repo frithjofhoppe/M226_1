@@ -7,7 +7,11 @@ package hz_3_3;
  */
 public class TestAccount
 {
-
+	
+	/**
+	 * Main method where everything is done
+	 * @param args: ignore
+	 */
 	public static void main(String[] args)
 	{
 		Account a1 = new Account(500.75); // Create new account with balance 500.75
