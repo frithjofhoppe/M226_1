@@ -2,7 +2,7 @@ package hz_3_3;
 
 /**
  * A test class to test the functionality of the Account-class
- * @author Philippe Krüttli
+ * @author Philippe Krï¿½ttli
  *
  */
 public class TestAccount
@@ -19,10 +19,10 @@ public class TestAccount
 		
 		a1.payInterest(365); // Pay interest for 1 year
 		a2.payInterest(750); // Pay interest for 750 days
-		System.out.println(a2.getBalance()); // Print out current balance of account a2
+		System.out.println("Balance of account 'a2': " + a2.getBalance()); // Print out current balance of account a2
 		
 		a2.deposit(200); // Deposit value of 200 on account a2
-		System.out.println(a2.getBalance()); // Print out current balance of account a2
+		System.out.println("Balance of account 'a2' after deposit: " + a2.getBalance()); // Print out current balance of account a2
 	}
 
 }
