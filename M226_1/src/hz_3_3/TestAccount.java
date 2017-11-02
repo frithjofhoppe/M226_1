@@ -19,10 +19,10 @@ public class TestAccount
 		
 		a1.payInterest(365); // Pay interest for 1 year
 		a2.payInterest(750); // Pay interest for 750 days
-		System.out.println("Balance of account 'a2': " + a2.getBalance()); // Print out current balance of account a2
+		System.out.println("Balance of account 'a2' before deposit: \t" + a2.getBalance()); // Print out current balance of account a2
 		
 		a2.deposit(200); // Deposit value of 200 on account a2
-		System.out.println("Balance of account 'a2' after deposit: " + a2.getBalance()); // Print out current balance of account a2
+		System.out.println("Balance of account 'a2' after deposit: \t\t" + a2.getBalance()); // Print out current balance of account a2
 	}
 
 }
