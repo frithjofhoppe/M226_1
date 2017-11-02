@@ -2,7 +2,7 @@ package hz_3_3;
 
 /**
  * A bank account used to place money
- * @author Philippe Krüttli
+ * @author Philippe KrÃ¼ttli
  *
  */
 public class Account
