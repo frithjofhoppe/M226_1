@@ -14,7 +14,7 @@ public class TestAccount
 	 */
 	public static void main(String[] args)
 	{
-		Account a1 = new Account(500.75); // Create new account with balance 500.75
+		Account a1 = new Account(500.75, new Client("Marc","Muster",1)); // Create new account with balance 500.75 for specified owner 'Marc Muster'
 		Account a2 = new Account(720.50); // Create new account with balance 720.50
 
 		a1.payInterest(365); // Pay interest for 1 year
