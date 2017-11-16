@@ -27,7 +27,6 @@ public class Account
 	 */
 	public Account(double balance, Client depositor) {
 		this.balance = balance;
-		this.interestRate = interestRate;
 		this.depositor = depositor;
 	}
 
@@ -40,7 +39,6 @@ public class Account
 	 */
 	public Account(double balance, String firstName, String lastName, int clientNr) {
 		this.balance = balance;
-		this.interestRate = interestRate;
 		this.depositor = new Client(firstName,lastName,clientNr);
 	}
 
@@ -49,7 +47,7 @@ public class Account
 	 * @param balance: the balance to set initially for the account
 	 * @param interestRate: the interest rate to set initially for the account
 	 */
-	Account(double balance, double interestRate)
+	public Account(double balance, double interestRate)
 	{
 		this.balance = balance;
 		this.interestRate = interestRate;
