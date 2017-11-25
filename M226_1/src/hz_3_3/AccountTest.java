@@ -15,20 +15,47 @@ public class AccountTest {
     }
 
     @Test
-    public void deposit() {
+    public void depositMoney() {
         Assert.assertEquals(account.getBalance(),0,0);
         account.deposit(20);
         Assert.assertEquals(account.getBalance(),20,0);
     }
 
     @Test
-    public void payInterest() {
+    public void depositNegativeMoney() {
+        Assert.assertEquals(account.getBalance(),0,0);
+        account.deposit(-20);
+        Assert.assertEquals(account.getBalance(),-20,0);
+    }
+
+    @Test
+    public void payInterestNoMoney() {
         Assert.assertEquals(account.getBalance(),0,0);
         account.payInterest(10);
         Assert.assertEquals(account.getBalance(),0,0);
+    }
+
+    @Test
+    public void payInterestWithMoney() {
         account.deposit(20);
         Assert.assertEquals(account.getBalance(),20,0);
         account.payInterest(365);
         Assert.assertEquals(account.getBalance(),40,0);
+    }
+
+    @Test
+    public void payInterestNegativeMoney() {
+        account.deposit(-20);
+        Assert.assertEquals(account.getBalance(),-20,0);
+        account.payInterest(365);
+        Assert.assertEquals(account.getBalance(),-40,0);
+    }
+
+    @Test
+    public void payInterestNegativeDays() {
+        account.deposit(20);
+        Assert.assertEquals(account.getBalance(),20,0);
+        account.payInterest(-365);
+        Assert.assertEquals(account.getBalance(),0,0);
     }
 }
