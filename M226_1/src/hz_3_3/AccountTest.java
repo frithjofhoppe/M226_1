@@ -4,8 +4,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
+/**
+ * These are all test for the Account-class.
+ * There are good functionality tests, as well
+ * as those which check if it does not yet work
+ * as it should.
+ */
 public class AccountTest {
     Account account;
 
@@ -25,7 +29,7 @@ public class AccountTest {
     public void depositNegativeMoney() {
         Assert.assertEquals(account.getBalance(),0,0);
         account.deposit(-20);
-        Assert.assertEquals(account.getBalance(),-20,0);
+        Assert.assertEquals(account.getBalance(),-20,0); // Assert that case is not caught
     }
 
     @Test
@@ -48,7 +52,7 @@ public class AccountTest {
         account.deposit(-20);
         Assert.assertEquals(account.getBalance(),-20,0);
         account.payInterest(365);
-        Assert.assertEquals(account.getBalance(),-40,0);
+        Assert.assertEquals(account.getBalance(),-40,0); // Assert that case is not caught
     }
 
     @Test
@@ -56,6 +60,6 @@ public class AccountTest {
         account.deposit(20);
         Assert.assertEquals(account.getBalance(),20,0);
         account.payInterest(-365);
-        Assert.assertEquals(account.getBalance(),0,0);
+        Assert.assertEquals(account.getBalance(),0,0); // Assert that case is not caught
     }
 }
