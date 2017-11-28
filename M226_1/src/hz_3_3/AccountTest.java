@@ -26,10 +26,17 @@ public class AccountTest {
     }
 
     @Test
+    public void depositNoMoney() {
+        Assert.assertEquals(account.getBalance(),0,0);
+        account.deposit(0);
+        Assert.assertEquals(account.getBalance(),0,0); // This is no error, because it could happen
+    }
+
+    @Test
     public void depositNegativeMoney() {
         Assert.assertEquals(account.getBalance(),0,0);
         account.deposit(-20);
-        Assert.assertEquals(account.getBalance(),-20,0); // Assert that case is not caught
+        Assert.assertEquals(account.getBalance(),-20,0); // Assert that case is not covered
     }
 
     @Test
@@ -52,7 +59,7 @@ public class AccountTest {
         account.deposit(-20);
         Assert.assertEquals(account.getBalance(),-20,0);
         account.payInterest(365);
-        Assert.assertEquals(account.getBalance(),-40,0); // Assert that case is not caught
+        Assert.assertEquals(account.getBalance(),-40,0); // Assert that case is not covered
     }
 
     @Test
@@ -60,6 +67,6 @@ public class AccountTest {
         account.deposit(20);
         Assert.assertEquals(account.getBalance(),20,0);
         account.payInterest(-365);
-        Assert.assertEquals(account.getBalance(),0,0); // Assert that case is not caught
+        Assert.assertEquals(account.getBalance(),0,0); // Assert that case is not covered
     }
 }

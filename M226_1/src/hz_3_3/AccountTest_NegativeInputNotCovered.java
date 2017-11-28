@@ -10,7 +10,7 @@ import org.junit.Test;
  * These values should (in real life) give another output,
  * or even throw an exception.
  */
-public class AccountTest_NegativeNotCaught {
+public class AccountTest_NegativeInputNotCovered {
         Account account;
 
         @Before
@@ -22,7 +22,7 @@ public class AccountTest_NegativeNotCaught {
         public void depositNegativeMoney() {
             Assert.assertEquals(account.getBalance(),0,0);
             account.deposit(-20);
-            Assert.assertEquals(account.getBalance(),-20,0); // Assert that case is not caught
+            Assert.assertEquals(account.getBalance(),-20,0); // Assert that case is not covered
         }
 
         @Test
@@ -30,7 +30,7 @@ public class AccountTest_NegativeNotCaught {
             account.deposit(-20);
             Assert.assertEquals(account.getBalance(),-20,0);
             account.payInterest(365);
-            Assert.assertEquals(account.getBalance(),-40,0); // Assert that case is not caught
+            Assert.assertEquals(account.getBalance(),-40,0); // Assert that case is not covered
         }
 
         @Test
@@ -38,6 +38,6 @@ public class AccountTest_NegativeNotCaught {
             account.deposit(20);
             Assert.assertEquals(account.getBalance(), 20, 0);
             account.payInterest(-365);
-            Assert.assertEquals(account.getBalance(), 0, 0); // Assert that case is not caught
+            Assert.assertEquals(account.getBalance(), 0, 0); // Assert that case is not covered
         }
 }
