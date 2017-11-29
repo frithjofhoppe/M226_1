@@ -3,42 +3,37 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="56.5" y="553.0">Minesweeper.UI</node>
-    <node x="54.5" y="0.0">Minesweeper.Field</node>
-    <node x="42.5" y="693.0">Minesweeper.Launcher</node>
-    <node x="338.0" y="0.0">Minesweeper.Logic</node>
-    <node x="0.0" y="222.0">Minesweeper.PlayingField</node>
+    <node x="338.0" y="357.0">v1.Field</node>
+    <node x="0.0" y="167.0">v1.GUI</node>
+    <node x="200.0" y="194.5">v1.Launcher</node>
+    <node x="567.0" y="357.0">v1.Logic</node>
+    <node x="107.0" y="0.0">v1.Interfaces.IGUI</node>
+    <node x="0.0" y="357.0">v1.PlayingField</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="Minesweeper.UI" target="Minesweeper.PlayingField">
-      <point x="-45.0" y="-45.0" />
-      <point x="101.5" y="528.0" />
-      <point x="73.25" y="528.0" />
-      <point x="-73.25" y="140.5" />
+    <edge source="v1.GUI" target="v1.Interfaces.IGUI">
+      <point x="0.0" y="-72.5" />
+      <point x="90.0" y="142.0" />
+      <point x="152.0" y="142.0" />
+      <point x="-45.0" y="58.5" />
     </edge>
-    <edge source="Minesweeper.Launcher" target="Minesweeper.UI">
-      <point x="52.0" y="-45.0" />
-      <point x="198.5" y="668.0" />
-      <point x="191.5" y="668.0" />
-      <point x="45.0" y="45.0" />
-    </edge>
-    <edge source="Minesweeper.PlayingField" target="Minesweeper.Field">
-      <point x="73.25" y="-140.5" />
-      <point x="219.75" y="197.0" />
-      <point x="192.5" y="197.0" />
-      <point x="46.0" y="86.0" />
+    <edge source="v1.Launcher" target="v1.Interfaces.IGUI">
+      <point x="0.0" y="-45.0" />
+      <point x="304.0" y="142.0" />
+      <point x="242.0" y="142.0" />
+      <point x="45.0" y="58.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="494.1428571428571" y="457.85714285714283" />
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="33.523809523809405" y="287.1666666666666" />
   <SelectedNodes>
-    <node>Minesweeper.UI</node>
+    <node>v1.Interfaces.IGUI</node>
   </SelectedNodes>
   <Categories>
-    <Category>Properties</Category>
     <Category>Inner Classes</Category>
-    <Category>Methods</Category>
     <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

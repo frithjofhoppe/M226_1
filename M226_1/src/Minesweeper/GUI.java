@@ -1,12 +1,21 @@
-package Minesweeper;
+package v1;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import v1.Interfaces.IGUI;
 
-public class UI {
+public class GUI implements IGUI {
     PlayingField playingField;
+    Stage primaryStage;
+
+    public GUI(Stage primaryStage)
+    {
+        this.primaryStage = primaryStage;
+        this.primaryStage.setScene(init());
+    }
 
     public Scene init()
     {
@@ -17,6 +26,11 @@ public class UI {
         Scene scene = new Scene(root, 600, 500);
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         return scene;
+    }
+
+    public void show()
+    {
+        primaryStage.show();
     }
 
     public VBox sideBar()

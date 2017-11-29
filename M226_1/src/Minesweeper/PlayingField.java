@@ -1,4 +1,4 @@
-package Minesweeper;
+package v1;
 
 import com.sun.istack.internal.Nullable;
 import javafx.scene.layout.HBox;
