@@ -7,7 +7,7 @@ import v1.Interfaces.IGUI;
 public class Launcher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        IGUI gui = new GUI(primaryStage, new Logic());
+        IGUI gui = new GUI(primaryStage);
         gui.show();
     }
     public static void main(String[] args) {

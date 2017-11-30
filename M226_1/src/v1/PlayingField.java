@@ -7,14 +7,12 @@ import javafx.scene.layout.VBox;
 
 public class PlayingField {
 
-    Logic logic;
     VBox playingField;
     int probability = 5;
     int dimensionOfField = 7;
 
-    public PlayingField(Logic logic) {
+    public PlayingField() {
         playingField = create(dimensionOfField, probability);
-        this.logic = logic;
     }
 
     VBox create(int expansion, int chance) {
@@ -25,7 +23,7 @@ public class PlayingField {
 
             for (int b = 0; b < expansion; b++) {
                 Field f;
-                if (logic.getRandomNumber(chance) == 1) {
+                if (Logic.getRandomNumber(chance) == 1) {
                     f = new Field(true);
                 } else {
                     f = new Field(false);
