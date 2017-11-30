@@ -7,4 +7,8 @@ public class Logic {
         Random rnd = new Random();
         return rnd.nextInt(max) + 1;
     }
+
+    public void endGame(boolean won) {
+        System.exit(0);
+    }
 }

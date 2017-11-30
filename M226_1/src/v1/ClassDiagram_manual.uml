@@ -3,60 +3,58 @@
   <ID>JAVA</ID>
   <OriginalElement>v1</OriginalElement>
   <nodes>
-    <node x="283.0" y="0.0">v1.Field</node>
-    <node x="0.0" y="54.5">v1.Logic</node>
-    <node x="491.57142857142856" y="331.0">v1.Interfaces</node>
-    <node x="178.57142857142853" y="222.0">v1.PlayingField</node>
-    <node x="301.39880952380946" y="526.0">v1.GUI</node>
-    <node x="403.54166666666663" y="721.0">v1.Launcher</node>
+    <node x="0.0" y="0.0">v1.Field</node>
+    <node x="167.99999999999997" y="33.5">v1.Logic</node>
+    <node x="261.6428571428571" y="290.0">v1.Interfaces</node>
+    <node x="4.64285714285711" y="190.0">v1.PlayingField</node>
+    <node x="98.24999999999997" y="469.0">v1.GUI</node>
+    <node x="174.12499999999997" y="637.0">v1.Launcher</node>
   </nodes>
   <notes />
   <edges>
     <edge source="v1.Launcher" target="v1.GUI">
-      <point x="-52.0" y="-45.0" />
-      <point x="455.54166666666663" y="696.0" />
-      <point x="391.39880952380946" y="696.0" />
-      <point x="0.0" y="72.5" />
+      <point x="-42.25" y="-36.5" />
+      <point x="216.37499999999997" y="612.0" />
+      <point x="170.24999999999997" y="612.0" />
+      <point x="0.0" y="59.0" />
     </edge>
     <edge source="v1.PlayingField" target="v1.Field">
-      <point x="0.0" y="-127.0" />
-      <point x="325.07142857142856" y="197.0" />
-      <point x="329.0" y="197.0" />
-      <point x="-46.0" y="86.0" />
+      <point x="-79.0" y="-114.5" />
+      <point x="44.14285714285711" y="165.0" />
+      <point x="37.0" y="165.0" />
+      <point x="-37.0" y="70.0" />
     </edge>
     <edge source="v1.PlayingField" target="v1.Logic">
-      <point x="-97.66666666666669" y="-127.0" />
-      <point x="227.40476190476184" y="197.0" />
-      <point x="131.5" y="197.0" />
-      <point x="0.0" y="31.5" />
+      <point x="79.0" y="-114.5" />
+      <point x="202.1428571428571" y="165.0" />
+      <point x="275.0" y="165.0" />
+      <point x="0.0" y="36.5" />
     </edge>
     <edge source="v1.GUI" target="v1.Interfaces">
-      <point x="60.0" y="-72.5" />
-      <point x="451.39880952380946" y="501.0" />
-      <point x="532.5714285714286" y="501.0" />
-      <point x="-41.0" y="18.0" />
+      <point x="48.0" y="-59.0" />
+      <point x="218.24999999999997" y="444.0" />
+      <point x="294.1428571428571" y="444.0" />
+      <point x="-32.5" y="14.5" />
     </edge>
     <edge source="v1.GUI" target="v1.PlayingField">
-      <point x="-60.0" y="-72.5" />
-      <point x="331.39880952380946" y="501.0" />
-      <point x="251.82142857142853" y="501.0" />
-      <point x="-73.25" y="127.0" />
+      <point x="0.0" y="-59.0" />
+      <point x="170.24999999999997" y="444.0" />
+      <point x="182.3928571428571" y="444.0" />
+      <point x="59.25" y="114.5" />
     </edge>
     <edge source="v1.Launcher" target="v1.Interfaces">
-      <point x="52.0" y="-45.0" />
-      <point x="559.5416666666666" y="696.0" />
-      <point x="614.5714285714286" y="696.0" />
-      <point x="41.0" y="18.0" />
+      <point x="42.24999999999999" y="-36.5" />
+      <point x="300.875" y="612.0" />
+      <point x="359.1428571428571" y="612.0" />
+      <point x="32.5" y="14.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="-149.0" y="273.9999999999999" />
-  <SelectedNodes>
-    <node>v1.PlayingField</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="50.57142857142844" y="366.85714285714283" />
+  <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
-    <Category>Properties</Category>
     <Category>Methods</Category>
+    <Category>Properties</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

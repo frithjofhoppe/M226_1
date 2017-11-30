@@ -43,7 +43,7 @@ public class PlayingField {
     }
 
     private void fieldClicked(Field f) {
-        if (f.isBomb == false) {
+        if (!f.isBomb) {
             f.getStyleClass().add("FieldButtonClicked");
             f.setText(Integer.toString(getBombCount(f.getXPos(), f.getYPos())));
         }
@@ -51,6 +51,11 @@ public class PlayingField {
         {
             f.getStyleClass().add("FieldBomb");
         }
+    }
+
+    private void markField(Field f)
+    {
+        f.setMarked(!f.isMarked);
     }
 
     @Nullable
