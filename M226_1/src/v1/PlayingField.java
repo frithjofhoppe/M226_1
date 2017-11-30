@@ -4,19 +4,20 @@ import com.sun.istack.internal.Nullable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.util.Random;
 
 public class PlayingField {
 
+    Logic logic;
     VBox playingField;
     int probability = 5;
     int dimensionOfField = 7;
 
-    public PlayingField() {
-        playingField = createPlayingField(dimensionOfField, probability);
+    public PlayingField(Logic logic) {
+        playingField = create(dimensionOfField, probability);
+        this.logic = logic;
     }
 
-    VBox createPlayingField(int expansion, int chance) {
+    VBox create(int expansion, int chance) {
         VBox toReturn = new VBox();
 
         for (int a = 0; a < expansion; a++) {
@@ -24,7 +25,7 @@ public class PlayingField {
 
             for (int b = 0; b < expansion; b++) {
                 Field f;
-                if (getRandomNumber(chance) == 1) {
+                if (logic.getRandomNumber(chance) == 1) {
                     f = new Field(true);
                 } else {
                     f = new Field(false);
@@ -43,11 +44,6 @@ public class PlayingField {
         return toReturn;
     }
 
-    public int getRandomNumber(int max) {
-        Random rnd = new Random();
-        return rnd.nextInt(max) + 1;
-    }
-
     private void fieldClicked(Field f) {
         if (f.isBomb == false) {
             f.getStyleClass().add("FieldButtonClicked");
@@ -61,8 +57,6 @@ public class PlayingField {
 
     @Nullable
     private Field getFieldByPosition(int x, int y) {
-        Field f;
-
         try {
             HBox box = (HBox) playingField.getChildren().get(y);
             if (box != null) {
@@ -111,7 +105,6 @@ public class PlayingField {
         toReturn += isBomb(getFieldByPosition(x - 1, y - 1));
         toReturn += isBomb(getFieldByPosition(x, y - 1));
         toReturn += isBomb(getFieldByPosition(x + 1, y));
-        toReturn += isBomb(getFieldByPosition(x , y));
 
         return toReturn;
     }

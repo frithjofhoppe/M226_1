@@ -8,19 +8,21 @@ import javafx.stage.Stage;
 import v1.Interfaces.IGUI;
 
 public class GUI implements IGUI {
+    Logic logic;
     PlayingField playingField;
     Stage primaryStage;
 
-    public GUI(Stage primaryStage)
+    public GUI(Stage primaryStage, Logic logic)
     {
         this.primaryStage = primaryStage;
         this.primaryStage.setScene(init());
+        this.logic = logic;
     }
 
     public Scene init()
     {
         BorderPane root = new BorderPane();
-        playingField = new PlayingField();
+        playingField = new PlayingField(logic);
         root.setCenter(playingField.getPlayingField());
         root.setRight(sideBar());
         Scene scene = new Scene(root, 600, 500);
