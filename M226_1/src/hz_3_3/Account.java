@@ -83,7 +83,10 @@ public class Account
 	 */
 	public void deposit(double value)
 	{
-		balance+=value;
+		if(value <= 2000)
+		{
+			balance+=value;
+		}
 	}
 	
 	/**

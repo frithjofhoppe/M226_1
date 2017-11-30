@@ -21,8 +21,15 @@ public class AccountTest {
     @Test
     public void depositMoney() {
         Assert.assertEquals(account.getBalance(),0,0);
-        account.deposit(20);
-        Assert.assertEquals(account.getBalance(),20,0);
+        account.deposit(2000);
+        Assert.assertEquals(account.getBalance(),2000,0);
+    }
+
+    @Test
+    public void depositToMuchMoney() {
+        Assert.assertEquals(account.getBalance(),0,0);
+        account.deposit(2200);
+        Assert.assertEquals(account.getBalance(),0,0);
     }
 
     @Test
@@ -68,5 +75,21 @@ public class AccountTest {
         Assert.assertEquals(account.getBalance(),20,0);
         account.payInterest(-365);
         Assert.assertEquals(account.getBalance(),0,0); // Assert that case is not covered
+    }
+
+    @Test
+    public void withdrawMoney() {
+        account.deposit(200);
+        Assert.assertEquals(account.getBalance(),200,0);
+        account.withdrawMoney(100);
+        Assert.assertEquals(account.getBalance(),100,0);
+    }
+
+    @Test
+    public void withdrawToMuchMoney() {
+        account.deposit(200);
+        Assert.assertEquals(account.getBalance(),200,0);
+        account.withdrawMoney(300);
+        Assert.assertEquals(account.getBalance(),200,0);
     }
 }
