@@ -10,6 +10,11 @@ public class Logic {
 
     public static boolean checkEnd(PlayingField playingField)
     {
+        int fields = playingField.dimensionOfField*playingField.dimensionOfField;
+        int bombs = playingField.bombsCount;
+        if(playingField.clickedFields >= fields - bombs) {
+            return true;
+        }
         return false;
     }
 }

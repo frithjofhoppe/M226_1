@@ -9,10 +9,14 @@ public class PlayingField {
 
     VBox playingField;
     Launcher launcher;
-    int probability = 5;
+    int clickedFields;
+    int bombsCount;
+    int probability = 5; // 20% of all fields are bombs
     int dimensionOfField = 7;
 
     public PlayingField(Launcher launcher) {
+        clickedFields = 0;
+        bombsCount = 0;
         playingField = create(dimensionOfField, probability);
         this.launcher = launcher;
     }
@@ -27,6 +31,7 @@ public class PlayingField {
                 Field f;
                 if (Logic.getRandomNumber(chance) == 1) {
                     f = new Field(true);
+                    bombsCount++;
                 } else {
                     f = new Field(false);
                 }
@@ -34,9 +39,7 @@ public class PlayingField {
                 f.setYPos(a);
                 f.setXPos(b);
 
-                f.setOnAction(e -> {
-                    fieldClicked(f);
-                });
+                f.setOnAction(e -> fieldClicked(f));
                 line.getChildren().add(f);
             }
             toReturn.getChildren().add(line);
@@ -45,6 +48,7 @@ public class PlayingField {
     }
 
     private void fieldClicked(Field f) {
+        clickedFields++;
         if (!f.isBomb) {
             f.getStyleClass().add("FieldButtonClicked");
             f.setText(Integer.toString(getBombCount(f.getXPos(), f.getYPos())));
@@ -103,7 +107,7 @@ public class PlayingField {
         return 0;
     }
 
-    private int getBombCount(int x, int y) {
+    public int getBombCount(int x, int y) {
         int toReturn = 0;
 
         toReturn += isBomb(getFieldByPosition( x + 1, y - 1));

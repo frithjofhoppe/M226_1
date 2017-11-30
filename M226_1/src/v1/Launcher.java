@@ -5,9 +5,10 @@ import javafx.stage.Stage;
 import v1.Interfaces.IGUI;
 
 public class Launcher extends Application {
+    IGUI gui;
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        IGUI gui = new GUI(primaryStage, this);
+    public void start(Stage primaryStage){
+        gui = new GUI(primaryStage, this);
         gui.show();
     }
     public static void main(String[] args) {
@@ -15,6 +16,13 @@ public class Launcher extends Application {
     }
 
     public void endGame(boolean won){
-        System.exit(0);
+        if(gui.showEndMessage(won))
+        {
+            start(new Stage());
+        } else {
+            System.exit(0);
+        }
+
+
     }
 }

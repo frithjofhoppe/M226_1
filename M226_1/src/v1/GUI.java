@@ -1,11 +1,16 @@
 package v1;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import v1.Interfaces.IGUI;
+
+import java.util.Optional;
 
 public class GUI implements IGUI {
     PlayingField playingField;
@@ -14,9 +19,9 @@ public class GUI implements IGUI {
 
     public GUI(Stage primaryStage, Launcher launcher)
     {
+        this.launcher = launcher;
         this.primaryStage = primaryStage;
         this.primaryStage.setScene(init());
-        this.launcher = launcher;
     }
 
     public Scene init()
@@ -47,5 +52,44 @@ public class GUI implements IGUI {
         back.getChildren().add(start);
         back.getChildren().add(reset);
         return back;
+    }
+
+    public boolean showEndMessage(boolean won){
+        if(won)
+        {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("You've won!");
+            alert.setHeaderText("Congratulations!");
+            alert.setContentText("You've won the Minesweeper game.\nTo restart, click the restart-Button.\nIf you want to exit this game, click exit.");
+
+            ButtonType buttonTypeRestart = new ButtonType("Restart");
+            ButtonType buttonTypeCancel = new ButtonType("Exit", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            alert.getButtonTypes().setAll(buttonTypeRestart, buttonTypeCancel);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeRestart){
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("You've lost!");
+            alert.setHeaderText("Looser!");
+            alert.setContentText("You've lost the Minesweeper game.\nTo restart, click the restart-Button.\nIf you want to exit this game, click exit.");
+
+            ButtonType buttonTypeRestart = new ButtonType("Restart");
+            ButtonType buttonTypeCancel = new ButtonType("Exit", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            alert.getButtonTypes().setAll(buttonTypeRestart, buttonTypeCancel);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeRestart){
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

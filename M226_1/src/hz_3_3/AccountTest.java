@@ -28,7 +28,7 @@ public class AccountTest {
     @Test
     public void depositToMuchMoney() {
         Assert.assertEquals(account.getBalance(),0,0);
-        account.deposit(2200);
+        account.deposit(2001);
         Assert.assertEquals(account.getBalance(),0,0);
     }
 
@@ -89,7 +89,7 @@ public class AccountTest {
     public void withdrawToMuchMoney() {
         account.deposit(200);
         Assert.assertEquals(account.getBalance(),200,0);
-        account.withdrawMoney(300);
+        account.withdrawMoney(201);
         Assert.assertEquals(account.getBalance(),200,0);
     }
 }

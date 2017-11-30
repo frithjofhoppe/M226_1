@@ -7,4 +7,5 @@ public interface IGUI {
     Scene init();
     VBox sideBar();
     void show();
+    boolean showEndMessage(boolean won);
 }
