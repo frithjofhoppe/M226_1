@@ -8,7 +8,8 @@ public class Logic {
         return rnd.nextInt(max) + 1;
     }
 
-    public void endGame(boolean won) {
-        System.exit(0);
+    public static boolean checkEnd(PlayingField playingField)
+    {
+        return false;
     }
 }

@@ -10,17 +10,19 @@ import v1.Interfaces.IGUI;
 public class GUI implements IGUI {
     PlayingField playingField;
     Stage primaryStage;
+    Launcher launcher;
 
-    public GUI(Stage primaryStage)
+    public GUI(Stage primaryStage, Launcher launcher)
     {
         this.primaryStage = primaryStage;
         this.primaryStage.setScene(init());
+        this.launcher = launcher;
     }
 
     public Scene init()
     {
         BorderPane root = new BorderPane();
-        playingField = new PlayingField();
+        playingField = new PlayingField(launcher);
         root.setCenter(playingField.getPlayingField());
         root.setRight(sideBar());
         Scene scene = new Scene(root, 600, 500);

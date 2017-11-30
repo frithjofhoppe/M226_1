@@ -8,11 +8,13 @@ import javafx.scene.layout.VBox;
 public class PlayingField {
 
     VBox playingField;
+    Launcher launcher;
     int probability = 5;
     int dimensionOfField = 7;
 
-    public PlayingField() {
+    public PlayingField(Launcher launcher) {
         playingField = create(dimensionOfField, probability);
+        this.launcher = launcher;
     }
 
     VBox create(int expansion, int chance) {
@@ -46,10 +48,14 @@ public class PlayingField {
         if (!f.isBomb) {
             f.getStyleClass().add("FieldButtonClicked");
             f.setText(Integer.toString(getBombCount(f.getXPos(), f.getYPos())));
+            if(Logic.checkEnd(this)){
+                launcher.endGame(true);
+            }
         }
         else
         {
             f.getStyleClass().add("FieldBomb");
+            launcher.endGame(false);
         }
     }
 
