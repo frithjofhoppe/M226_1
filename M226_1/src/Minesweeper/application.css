@@ -6,7 +6,7 @@
     -fx-min-height: 55;
     -fx-pref-height: 55;
     -fx-max-height: 55;
-    -fx-background-color: darkolivegreen;
+    -fx-background-color: darkgray;
     -fx-border-color: white;
     -fx-border-width: 5 5 5 5;
 }
@@ -19,7 +19,15 @@
     -fx-min-height: 55;
     -fx-pref-height: 55;
     -fx-max-height: 55;
-    -fx-background-color: lightgrey;
+    -fx-background-color: white;
+    -fx-border-color: black;
+}
+
+.FieldButtonMarked{
+    -fx-background-image: url("./pics/flag.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 70%;
+    -fx-background-position: center;
 }
 
 .FieldBomb{

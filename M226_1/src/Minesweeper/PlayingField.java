@@ -1,6 +1,13 @@
-package v1;
+package Minesweeper;
 
 import com.sun.istack.internal.Nullable;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -39,7 +46,22 @@ public class PlayingField {
                 f.setYPos(a);
                 f.setXPos(b);
 
-                f.setOnAction(e -> fieldClicked(f));
+                //f.setOnAction(e -> fieldClicked(f));
+                f.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
+                        {
+                            @Override
+                            public void handle(MouseEvent e) {
+                                if (e.getButton() == MouseButton.SECONDARY)
+                                {
+                                    fieldClickedMark(f);
+                                }
+                                else
+                                {
+                                    fieldClickedTurn(f);
+                                }
+                                e.consume();
+                            }
+                        });
                 line.getChildren().add(f);
             }
             toReturn.getChildren().add(line);
@@ -47,20 +69,31 @@ public class PlayingField {
         return toReturn;
     }
 
-    private void fieldClicked(Field f) {
-        clickedFields++;
-        if (!f.isBomb) {
-            f.getStyleClass().add("FieldButtonClicked");
-            f.setText(Integer.toString(getBombCount(f.getXPos(), f.getYPos())));
-            if(Logic.checkEnd(this)){
-                launcher.endGame(true);
+    private void fieldClickedTurn(Field f) {
+        if(!f.isMarked) {
+            clickedFields++;
+            if (!f.isBomb) {
+                f.getStyleClass().add("FieldButtonClicked");
+                f.setText(Integer.toString(getBombCount(f.getXPos(), f.getYPos())));
+                if (Logic.checkEnd(this)) {
+                    launcher.endGame(true);
+                }
+            } else {
+                f.getStyleClass().add("FieldBomb");
+                launcher.endGame(false);
             }
-        }
-        else
+        } else
         {
-            f.getStyleClass().add("FieldBomb");
-            launcher.endGame(false);
+            launcher.gui.showMarkErrorMessage();
         }
+    }
+
+    private void fieldClickedMark(Field f) {
+        f.isMarked = !f.isMarked;
+        if(f.isMarked)
+            f.getStyleClass().add("FieldButtonMarked");
+        else
+            f.getStyleClass().remove("FieldButtonMarked");
     }
 
     private void markField(Field f)

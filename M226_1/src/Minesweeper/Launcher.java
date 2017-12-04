@@ -1,8 +1,8 @@
-package v1;
+package Minesweeper;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import v1.Interfaces.IGUI;
+import Minesweeper.Interfaces.IGUI;
 
 public class Launcher extends Application {
     IGUI gui;
@@ -10,6 +10,7 @@ public class Launcher extends Application {
     public void start(Stage primaryStage){
         gui = new GUI(primaryStage, this);
         gui.show();
+        gui.showInitMessage();
     }
     public static void main(String[] args) {
         launch(args);
@@ -18,7 +19,7 @@ public class Launcher extends Application {
     public void endGame(boolean won){
         if(gui.showEndMessage(won))
         {
-            start(new Stage());
+            gui.restart();
         } else {
             System.exit(0);
         }
