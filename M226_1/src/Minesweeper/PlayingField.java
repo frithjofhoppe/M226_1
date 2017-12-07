@@ -7,6 +7,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
 
 public class PlayingField {
 
@@ -69,6 +73,8 @@ public class PlayingField {
             clickedFields++;
             if (!f.isBomb) {
                 f.getStyleClass().add("FieldButtonClicked");
+                if(getBombCount(f.getXPos(),f.getYPos()) == 0)
+                    turnNeighbors(f);
                 f.setText(Integer.toString(getBombCount(f.getXPos(), f.getYPos())));
                 if (Logic.checkEnd(this)) {
                     launcher.endGame(true);
@@ -148,5 +154,40 @@ public class PlayingField {
         toReturn += isBomb(getFieldByPosition(x + 1, y));
 
         return toReturn;
+    }
+
+    public ArrayList<Field> getNeighbors(int x, int y) {
+        ArrayList<Field> toReturn = new ArrayList<Field>();
+
+        toReturn.add(getFieldByPosition( x + 1, y - 1));
+        toReturn.add(getFieldByPosition(x + 1, y + 1));
+        toReturn.add(getFieldByPosition(x, y + 1));
+        toReturn.add(getFieldByPosition(x - 1, y + 1));
+        toReturn.add(getFieldByPosition(x - 1, y));
+        toReturn.add(getFieldByPosition(x - 1, y - 1));
+        toReturn.add(getFieldByPosition(x, y - 1));
+        toReturn.add(getFieldByPosition(x + 1, y));
+
+        return toReturn;
+    }
+
+    public void turnNeighbors(Field f) {
+        ArrayList<Field> list = new ArrayList<Field>();
+        list.add(f);
+        ListIterator<Field> iter = list.listIterator();
+
+        while(iter.hasNext()){
+            Field fi = iter.next();
+            ArrayList<Field> currentList = getNeighbors(fi.xPos, fi.yPos);
+            for(Field field: currentList){
+                if(!field.isTurned) {
+                    if (!field.isBomb)
+                        fieldClickedTurn(field);
+                    if (getBombCount(field.xPos, field.yPos) == 0)
+                        iter.add(field);
+                }
+            }
+            iter.remove();
+        }
     }
 }
