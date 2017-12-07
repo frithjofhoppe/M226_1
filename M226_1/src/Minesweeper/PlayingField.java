@@ -1,9 +1,7 @@
 package Minesweeper;
 
 import com.sun.istack.internal.Nullable;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -45,21 +43,19 @@ public class PlayingField {
                 f.setXPos(b);
 
                 //f.setOnAction(e -> fieldClicked(f));
-                f.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
-                        {
-                            @Override
-                            public void handle(MouseEvent e) {
-                                if (e.getButton() == MouseButton.SECONDARY)
-                                {
-                                    fieldClickedMark(f);
-                                }
-                                else
-                                {
-                                    fieldClickedTurn(f);
-                                }
-                                e.consume();
-                            }
-                        });
+                f.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                    if (e.getButton() == MouseButton.SECONDARY)
+                    {
+                        if(!f.isTurned) {
+                            fieldClickedMark(f);
+                        }
+                    }
+                    else
+                    {
+                        fieldClickedTurn(f);
+                    }
+                    e.consume();
+                });
                 line.getChildren().add(f);
             }
             toReturn.getChildren().add(line);

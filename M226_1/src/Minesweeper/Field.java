@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 public class Field extends Button {
     boolean isMarked;
     boolean isBomb;
+    boolean isTurned;
     int xPos;
     int yPos;
 

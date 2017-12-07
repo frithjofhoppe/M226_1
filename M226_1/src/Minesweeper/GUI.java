@@ -30,7 +30,7 @@ public class GUI implements IGUI {
         root.setCenter(playingField.getPlayingField());
         //root.setRight(sideBar());
         //root.setBottom(bottomControl());
-        Scene scene = new Scene(root, 600, 500);
+        Scene scene = new Scene(root, 400, 400);
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         return scene;
     }
