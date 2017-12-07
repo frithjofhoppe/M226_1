@@ -65,6 +65,7 @@ public class PlayingField {
 
     private void fieldClickedTurn(Field f) {
         if(!f.isMarked) {
+            f.isTurned = true;
             clickedFields++;
             if (!f.isBomb) {
                 f.getStyleClass().add("FieldButtonClicked");
